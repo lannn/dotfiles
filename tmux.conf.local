@@ -1,3 +1,6 @@
+set prefix C-s
+unbind-key C-b
+
 # Enable mouse on tmux
 set-option -g mouse on
 

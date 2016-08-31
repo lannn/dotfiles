@@ -25,6 +25,8 @@ let g:move_map_keys = 0
 vmap <C-j> <Plug>MoveBlockDown
 vmap <C-k> <Plug>MoveBlockUp
 let test#strategy = "dispatch"
+let g:jsx_ext_required = 0
+autocmd BufWritePre * StripWhitespace
 
 " Common
 map <C-c> "*y<CR>
@@ -33,7 +35,6 @@ map <C-a> <ESC>gg<S-v>G<ESC>
 map <Leader>ag :Ag!<SPACE>
 map <Leader>bi :PlugInstall<CR>
 map <Leader>ct :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)<CR>
-map <Leader>fs :FixWhitespace<CR>
 map <Leader>n <C-w>v<C-h><SPACE><SPACE>
 map <Leader>nt :NERDTree<CR>
 map <Leader>q :q<CR>
@@ -43,6 +44,7 @@ map <Leader>sv :source ~/.vimrc<CR>
 map <Leader>te :tabe<SPACE>
 map <Leader>v "*p<CR>
 map <Leader>vi :tabe ~/.vimrc.local<CR>
+map <Leader>vb :tabe ~/.vimrc.bundles.local<CR>
 map <Leader>w :w<CR>
 nmap <CR> o<Esc>k
 nnoremap <S-CR> O<Esc>j
@@ -81,21 +83,24 @@ map <Leader>as <ESC>:e app/assets/stylesheets/application.scss<CR>
 map <Leader>av :AV<CR>
 map <Leader>bb :!bundle install<CR>
 map <Leader>c :Scontroller<SPACE>
-map <Leader>d <ESC>obinding.pry<ESC>
-map <Leader>dv <ESC>o- binding.pry<ESC>
+map <Leader>d <ESC>obyebug<ESC>
+map <Leader>dv <ESC>o- byebug<ESC>
 map <Leader>db :e config/database.yml<CR>
 map <Leader>g :e Gemfile<CR>
 map <Leader>m :Smodel<SPACE>
 map <Leader>rt :e config/routes.rb<CR>
+map <Leader>rf :e config/routes/
 map <Leader>rv :RV<CR>
 map <Leader>sc :sp db/schema.rb<CR>
 map <Leader>vc :Vcontroller<SPACE>
 map <Leader>vm :Vmodel<SPACE>
 map <Leader>vv :Vview<SPACE>
 map <Leader>bc :Scontroller<SPACE>
-map <Leader>bm :Smodel<SPACE>
 map <Leader>bv :Sview<SPACE>
 map <Leader>vf :Vfactory<SPACE>
 map <Leader>sf :Sfactory<SPACE>
 map <Leader>vp :e app/policies/
+map <Leader>cv :REview <C-r><C-w>.html.haml
+map <Leader>tf :NERDTreeFind<CR>
+map <Leader>df :Remove!<CR>
 xmap ga <Plug>(EasyAlign)

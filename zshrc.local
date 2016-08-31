@@ -3,3 +3,4 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 export EDITOR=vim
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export ANDROID_HOME=/Users/MAC/Library/Android/sdk
