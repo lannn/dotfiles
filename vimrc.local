@@ -16,7 +16,7 @@ let g:rails_projections = {
 
 highlight LineNr ctermfg=white
 highlight Visual ctermfg=blue ctermbg=white
-set relativenumber
+" set relativenumber
 syntax on
 set background=dark
 let g:solarized_termtrans = 1
@@ -34,7 +34,7 @@ nmap <Leader>cf :let @*=expand("%")<CR>
 map <C-a> <ESC>gg<S-v>G<ESC>
 map <Leader>ag :Ag!<SPACE>
 map <Leader>bi :PlugInstall<CR>
-map <Leader>ct :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)<CR>
+map <Leader>ct :Start! ctags -R ./ $(bundle list --paths) --languages=ruby --exclude={.git,log,app/assets/webpack,node_modules,"*.min.js","*.min.css"}<CR>
 map <Leader>n <C-w>v<C-h><SPACE><SPACE>
 map <Leader>nt :NERDTree<CR>
 map <Leader>q :q<CR>
@@ -100,7 +100,25 @@ map <Leader>bv :Sview<SPACE>
 map <Leader>vf :Vfactory<SPACE>
 map <Leader>sf :Sfactory<SPACE>
 map <Leader>vp :e app/policies/
-map <Leader>cv :REview <C-r><C-w>.html.haml
 map <Leader>tf :NERDTreeFind<CR>
 map <Leader>df :Remove!<CR>
 xmap ga <Plug>(EasyAlign)
+
+map <Leader>cv :call CurrentFuncNameRuby()<CR>
+
+function! CurrentFuncNameRuby()
+  let l:index = line('.')
+  while l:index > 1
+    let l:line_string = getline(l:index)
+    let l:line_words = split(l:line_string, ' ')
+    let l:def_index = index(l:line_words, 'def')
+    if (l:def_index >= 0)
+      let l:func_name = split(l:line_words[l:def_index + 1], "(")[0]
+      let l:command_string = ":REview " . l:func_name . '.html.haml'
+      execute l:command_string
+      return
+    endif
+    let l:index -= 1
+  endwhile
+  echo 'Not detect method name'
+endfunction
