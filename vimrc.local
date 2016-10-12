@@ -27,6 +27,7 @@ vmap <C-k> <Plug>MoveBlockUp
 let test#strategy = "dispatch"
 let g:jsx_ext_required = 0
 autocmd BufWritePre * StripWhitespace
+set clipboard=unnamed
 
 " Common
 map <C-c> "*y<CR>
@@ -103,6 +104,8 @@ map <Leader>vp :e app/policies/
 map <Leader>tf :NERDTreeFind<CR>
 map <Leader>df :Remove!<CR>
 xmap ga <Plug>(EasyAlign)
+
+nmap fj :Ag! "<cword>" -G "\.js" --ignore "*.min.js" --ignore-dir "app/assets/javascripts/components" --ignore-dir "app/assets/webpack"<CR>
 
 map <Leader>cv :call CurrentFuncNameRuby()<CR>
 
