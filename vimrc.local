@@ -53,6 +53,13 @@ map <Leader>k :Ag! <cword><CR>
 map <Leader>e /\<
 nnoremap <C-]> :CtrlPtjump<cr>
 vnoremap <C-]> :CtrlPtjumpVisual<cr>
+nmap <Leader>e <Plug>PickerEdit
+nmap <Leader>v <Plug>PickerVsplit
+nmap <Leader>b <Plug>PickerBuffer
+nmap <Leader>ps <Plug>PickerSplit
+nmap <Leader>pt <Plug>PickerTabedit
+nmap <Leader>p] <Plug>PickerTag
+nmap <Leader>ph <Plug>PickerHelp
 
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -61,8 +68,8 @@ omap / <Plug>(easymotion-tn)
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+map  m <Plug>(easymotion-next)
+map  M <Plug>(easymotion-prev)
 
 " Git
 map <Leader>co :Gread<CR>
@@ -77,7 +84,7 @@ map <Leader>gs :Gstatus<CR>
 
 " Rails
 map <Leader>a <ESC>ggVG<CR>
-map <Leader>ac :Scontroller application<CR>
+map <Leader>ac :Econtroller application<CR>
 map <Leader>ah :Vhelper application<CR>
 map <Leader>aj <ESC>:e app/assets/javascripts/application.js<CR>
 map <Leader>as <ESC>:e app/assets/stylesheets/application.scss<CR>
@@ -106,6 +113,7 @@ map <Leader>df :Remove!<CR>
 xmap ga <Plug>(EasyAlign)
 
 nmap fj :Ag! "<cword>" -G "\.js" --ignore "*.min.js" --ignore-dir "app/assets/javascripts/components" --ignore-dir "app/assets/webpack"<CR>
+nmap fa :Ag! "<cword>" -G "\.(rb\|erb\|js\|css\|scss\|yml\|rake\|haml)" --ignore "*.min.*" --ignore-dir "app/assets/javascripts/components" --ignore-dir "app/assets/stylesheets/components" --ignore-dir "app/assets/webpack"<CR>
 
 map <Leader>cv :call CurrentFuncNameRuby()<CR>
 

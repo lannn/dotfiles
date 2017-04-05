@@ -9,6 +9,9 @@ export ZSH=/Users/MAC/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+unsetopt share_history
+setopt no_share_history
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -51,7 +54,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git git-extras tmux rails ruby bundler web-search)
+plugins=(osx git git-extras tmux rails ruby bundler web-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

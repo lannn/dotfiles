@@ -7,4 +7,5 @@ export ANDROID_HOME=/Users/MAC/Library/Android/sdk
 
 [[ -f ~/.zshrc.oh-my-zsh ]] && source ~/.zshrc.oh-my-zsh
 
-alias g=gst
+alias mux=tmuxinator
+alias gs=gst
